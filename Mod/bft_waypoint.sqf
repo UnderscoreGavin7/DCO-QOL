@@ -12,7 +12,6 @@ wpMarkerConfig = _wpMarkerConfig;
 
 private _condition = "_target distance (leader group _target) > distanceConfig && !isNull(leader _target);";
 private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
-test
 //Events
 [
 	player,
