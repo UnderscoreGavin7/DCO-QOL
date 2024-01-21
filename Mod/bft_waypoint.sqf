@@ -10,9 +10,7 @@ params [
 	"_leaderMarkerBool", 
 	"_wpMarkerBool", 
 	"_wpMarkerConfig", 
-	"_leaderSleepConfig", 
-	"_leaderMarkerActiveUpdateBool", 
-	"_leaderActiveUpdateInterval"
+	"_leaderSleepConfig"
 ];
 
 leaderDistanceConfig = _leaderDistanceConfig;
@@ -21,11 +19,10 @@ leaderMarkerBool = _leaderMarkerBool;
 wpMarkerConfig = _wpMarkerConfig;
 wpMarkerBool = _wpMarkerBool;
 leaderSleepConfig = _leaderSleepConfig;
-leaderMarkerActiveUpdateBool = _leaderMarkerActiveUpdateBool;
-leaderActiveUpdateInterval = _leaderActiveUpdateInterval;
 
 private _condition = "leaderMarkerBool && _target distance (leader group _target) > leaderDistanceConfig && !isNull(leader _target);";
 private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
+
 //Events
 [
 	player,
@@ -39,12 +36,7 @@ private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
 			_leaderMarker setMarkerType leaderMarkerConfig;
 			_leaderMarker setMarkerText ( groupId (group player) + " SL");
 			_leaderMarker setMarkerPos leader player;
-
-			while {leaderMarkerActiveUpdateBool} do {
-				_leaderMarker setMarkerPos leader player;
-				sleep leaderActiveUpdateInterval;
-			};
-
+			
 			sleep leaderSleepConfig;
 			deleteMarker _leaderMarker;
 		
