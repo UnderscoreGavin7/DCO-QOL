@@ -4,13 +4,27 @@
 //BASIC DCO BFT & Waypoint Marker System 
 //-----------------------------------------------------------------//
 
-params ["_leaderDistanceConfig", "_leaderMarkerConfig", "_wpMarkerConfig"];
+params [
+	"_leaderDistanceConfig", 
+	"_leaderMarkerConfig", 
+	"_leaderMarkerBool", 
+	"_wpMarkerBool", 
+	"_wpMarkerConfig", 
+	"_leaderSleepConfig", 
+	"_leaderMarkerActiveUpdateBool", 
+	"_leaderActiveUpdateInterval"
+];
 
 leaderDistanceConfig = _leaderDistanceConfig;
 leaderMarkerConfig = _leaderMarkerConfig;
+leaderMarkerBool = _leaderMarkerBool;
 wpMarkerConfig = _wpMarkerConfig;
+wpMarkerBool = _wpMarkerBool;
+leaderSleepConfig = _leaderSleepConfig;
+leaderMarkerActiveUpdateBool = _leaderMarkerActiveUpdateBool;
+leaderActiveUpdateInterval = _leaderActiveUpdateInterval;
 
-private _condition = "_target distance (leader group _target) > distanceConfig && !isNull(leader _target);";
+private _condition = "leaderMarkerBool && _target distance (leader group _target) > leaderDistanceConfig && !isNull(leader _target);";
 private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
 //Events
 [
@@ -25,7 +39,13 @@ private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
 			_leaderMarker setMarkerType leaderMarkerConfig;
 			_leaderMarker setMarkerText ( groupId (group player) + " SL");
 			_leaderMarker setMarkerPos leader player;
-			sleep 15;
+
+			while {leaderMarkerActiveUpdateBool} do {
+				_leaderMarker setMarkerPos leader player;
+				sleep leaderActiveUpdateInterval;
+			};
+
+			sleep leaderSleepConfig;
 			deleteMarker _leaderMarker;
 		
 		},
@@ -49,9 +69,9 @@ _wpMarker = createMarker ["wpMarker", player];
 _wpMarker setMarkerType _wpMarkerConfig;
 _wpMarker setMarkerText "Current Waypoint";
 
-//MAIN LOOP
+//Waypoint Update LOOP
 
-while {true} do {
+while {wpMarkerBool} do {
 
 	sleep 1;
 
