@@ -42,7 +42,7 @@ execVM "Mod\unitShutterUpper.sqf";
 _deaths = [] execVM "Mod\sideDeathCount.sqf";
 hint str [leaderDistanceConfig,leaderMarkerConfig,wpMarkerConfig];
  null = [leaderDistanceConfig,leaderMarkerConfig,wpMarkerConfig] execVM "Mod\bft_waypoint.sqf";
-
+//d
 //----------------------------------------------------------------//
 //LOOP
 //----------------------------------------------------------------//
