@@ -61,20 +61,26 @@ _wpMarker = createMarker ["wpMarker", player];
 _wpMarker setMarkerType _wpMarkerConfig;
 _wpMarker setMarkerText "Current Waypoint";
 
+_vrMarkerWaypoint = "VR_3DSelector_01_incomplete_F" createVehicle getWPPos[ group player, currentWaypoint group player ];
+_vrMarkerWaypoint setObjectScale 2;
+
 //Waypoint Update LOOP
 
 while {wpMarkerBool} do {
 
 	sleep 1;
 
-	_posWP = getWPPos [(group player), (currentWaypoint (group player))];
+	_posWP = getWPPos [ group player, currentWaypoint group player ];
+	_vrMarkerWaypoint setPosATL [ (_posWP #0),(_posWP #1), 3];
 	_wpMarker setMarkerPos _posWP;
 
 	if (_posWP #0 == 0 && _posWP #1== 0) then {
 		_wpMarker setMarkerAlpha 0;
+		_vrMarkerWaypoint hideObject true;
 	}
 	else {
 		_wpMarker setMarkerAlpha 1;
+		_vrMarkerWaypoint hideObject false;
 	}
 
 };
