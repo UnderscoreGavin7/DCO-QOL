@@ -30,7 +30,7 @@ _civilianDeaths = 0;
 } forEach allUnits;
 
 
-hint format ["Blufor: %1\nOpfor: %2\nIndependent: %3\nCivilian: %4",str _bluforDeaths,str _opforDeaths,str _indforDeaths,str _civilianDeaths];
+//hint format ["Blufor: %1\nOpfor: %2\nIndependent: %3\nCivilian: %4",str _bluforDeaths,str _opforDeaths,str _indforDeaths,str _civilianDeaths];
 
 
 deathArray = [_bluforDeaths,_opforDeaths,_indforDeaths,_civilianDeaths];

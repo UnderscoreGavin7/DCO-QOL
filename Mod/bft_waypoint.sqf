@@ -4,10 +4,16 @@
 //BASIC DCO BFT & Waypoint Marker System 
 //-----------------------------------------------------------------//
 
-private _condition = "_target distance (leader group _target) > 100 && !isNull(leader player);";
-private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
-//Events
+params ["_leaderDistanceConfig", "_leaderMarkerConfig", "_wpMarkerConfig"];
 
+leaderDistanceConfig = _leaderDistanceConfig;
+leaderMarkerConfig = _leaderMarkerConfig;
+wpMarkerConfig = _wpMarkerConfig;
+
+private _condition = "_target distance (leader group _target) > distanceConfig && !isNull(leader _target);";
+private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
+
+//Events
 [
 	player,
 	[
@@ -15,9 +21,9 @@ private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
 		{
 			_leaderPos = getPosATL (leader player); 
 			(leader player) sideChat format["I am currently at Grid Coordinates: 0%1,0%2", floor (floor(_leaderPos #0)/100) ,floor (floor(_leaderPos #1)/100)];
-
+			
 			_leaderMarker = createMarker ["leaderMarker", player];
-			_leaderMarker setMarkerType "b_unknown";
+			_leaderMarker setMarkerType leaderMarkerConfig;
 			_leaderMarker setMarkerText ( groupId (group player) + " SL");
 			_leaderMarker setMarkerPos leader player;
 			sleep 15;
@@ -41,7 +47,7 @@ remoteExecCall ["addAction", 0, true];
 //Variables
 
 _wpMarker = createMarker ["wpMarker", player];
-_wpMarker setMarkerType "mil_marker";
+_wpMarker setMarkerType _wpMarkerConfig;
 _wpMarker setMarkerText "Current Waypoint";
 
 //MAIN LOOP
