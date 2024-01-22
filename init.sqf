@@ -112,15 +112,18 @@
 null = [] execVM "Mod\unitShutterUpper.sqf";
 _deaths = [] execVM "Mod\sideDeathCount.sqf";
 null = [
-	leaderDistanceConfig, 
-	leaderMarkerConfig, 
-	leaderMarkerBool, 
 	wpMarkerBool, 
-	wpMarkerConfig, 
-	leaderSleepConfig,
 	wpMarkerObjectBool,
-    leaderMarkerAceBool
-] execVM "Mod\bft_waypoint.sqf";
+	wpMarkerConfig
+] execVM "Mod\waypointMarker.sqf";
+null = [
+	leaderMarkerBool, 
+    leaderMarkerAceBool,
+	leaderMarkerConfig, 
+	leaderDistanceConfig, 
+	leaderSleepConfig
+] execVM "Mod\leaderMarker.sqf";
+
 
 //----------------------------------------------------------------//
 //LOOP
