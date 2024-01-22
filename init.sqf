@@ -62,7 +62,12 @@
     "SLIDER", 					    // setting type
     "Leader Marker Time-On-Map", 	// Pretty name 
     "DCO Extras: QOL Settings", 	// Pretty name of the category 
-    [0, 60, 15, 0], 		        // data 
+    [
+        0, 
+        60, 
+        15, 
+        0
+    ], 		                        // data 
     true, 						    // "_isGlobal" flag
     {  
         params ["_value"];
@@ -74,7 +79,12 @@
     "SLIDER", 					        // setting type
     "Leader BFT Action Init Distance", 	// Pretty name 
     "DCO Extras: QOL Settings", 		// Pretty name of the category 
-    [0, 500, 100, 0], 		            // data 
+    [
+        0, 
+        500, 
+        100, 
+        0
+    ], 		                            // data 
     true, 						        // "_isGlobal" flag
     {  
         params ["_value"];
