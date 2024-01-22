@@ -47,18 +47,42 @@ leaderMarkerAceBool = _leaderMarkerAceBool;
  */
 
 private _condition = "leaderMarkerBool && _target distance (leader group _target) > leaderDistanceConfig && !isNull(leader _target);";
-private _aceCondition = "leaderMarkerAceBool && _target distance (leader group _target) > leaderDistanceConfig && !isNull(leader _target);";
 private _title = "<t color='#72d15a'>Where are you Squad Leader?</t>";
+private statement = 
+{
+	_leaderPos = getPosATL (leader player); 
+	(leader player) sideChat format["I am currently at Grid Coordinates: 0%1,0%2", floor (floor(_leaderPos #0)/100) ,floor (floor(_leaderPos #1)/100)];
 
-_action = ["getSLPos",_title,"",_statement,_aceCondition] call ace_interact_menu_fnc_createAction;
-[(typeOf player), 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToClass;
-//Events
+	_leaderMarker = createMarkerLocal ["leaderMarker", player];
+	_leaderMarker setMarkerTypeLocal leaderMarkerConfig;
+	_leaderMarker setMarkerTextLocal ( groupId (group player) + " SL");
+	_leaderMarker setMarkerPosLocal leader player;
+	sleep leaderSleepConfig;
+	deleteMarkerLocal _leaderMarker;
+};
+_action = 
+[
+	"getSLPos", // Action Name
+	"Where are you Squad Leader?", // Shown Name
+	"", // Icon
+	{
+		[] spawn statement;
+	}, // statement
+	{leaderMarkerAceBool && _target distance (leader group _target) > leaderDistanceConfig && !isNull(leader _target)} // Condition
+] call ace_interact_menu_fnc_createAction;
+
+[
+	(typeOf player), // TypeOF
+	1, // Type of action, 0 for actions, 1 for self-actions
+	["ACE_SelfActions"], // Action Location
+	_action // Ace Action
+] call ace_interact_menu_fnc_addActionToClass;
+
 [
 	player,
 	[
 		_title,     // title
 		{
-			 
 			_leaderPos = getPosATL (leader player); 
 			(leader player) sideChat format["I am currently at Grid Coordinates: 0%1,0%2", floor (floor(_leaderPos #0)/100) ,floor (floor(_leaderPos #1)/100)];
 			
@@ -69,8 +93,7 @@ _action = ["getSLPos",_title,"",_statement,_aceCondition] call ace_interact_menu
 			
 			sleep leaderSleepConfig;
 			deleteMarker _leaderMarker;
-		
-		},
+		},			// statement
 		nil,        // arguments
 		1.5,        // priority
 		false,      // showWindow
