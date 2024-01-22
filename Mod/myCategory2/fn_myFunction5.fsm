@@ -1,0 +1,116 @@
+/*%FSM<COMPILE "scriptedFSM.cfg, fn_myFunction5">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-40.348839,-120.348831,49.651161,-70.348831,0.000000,"START"};
+item1[] = {"alive_player",4,218,-39.767441,-28.488369,50.232559,21.511631,0.000000,"alive player"};
+item2[] = {"code_to_run",2,250,-39.186050,48.837219,50.813965,98.837219,0.000000,"code to run"};
+item3[] = {"then",8,218,-39.767452,140.116272,50.232548,190.116272,0.000000,"then"};
+item4[] = {"END",1,4346,-40.348839,240.116272,49.651192,290.116272,0.000000,"END"};
+item5[] = {"Author__Julien_V",-1,250,-366.309570,-118.542519,-176.088455,-73.147705,0.000000,"Author: Julien V. (Tom_48_97)"};
+version=1;
+class LayoutItems
+{
+	class Item5
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10;
+			lStyle=1;
+			Align=0;
+		};
+		BgColor=16777215;
+	};
+};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-399.299988,399.299957,320.368561,-211.257538,1404,1041,1};
+window[] = {2,-1,-1,-1,-1,858,25,1465,25,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "fn_myFunction5";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"scriptName ""fsmEdFile_START_0000"";" \n
+                         "/*" \n
+                         "	Author: Tom_48_97" \n
+                         "" \n
+                         "	Description:" \n
+                         "	Describe your function" \n
+                         "" \n
+                         "	Parameter(s):" \n
+                         "	#0 OBJECT - Description" \n
+                         "" \n
+                         "	Returns:" \n
+                         "	BOOL - TRUE when done" \n
+                         "*/" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "alive_player">*/
+                                class alive_player
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="code_to_run";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive player"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "code_to_run">*/
+                class code_to_run
+                {
+                        name = "code_to_run";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"diag_log format [""%1, %2"", player, time];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "then">*/
+                                class then
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="END";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "END">*/
+                class END
+                {
+                        name = "END";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"true"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "END",
+        };
+};
+/*%FSM</COMPILE>*/
