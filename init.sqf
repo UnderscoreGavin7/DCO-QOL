@@ -1,4 +1,5 @@
 //Creator: _Gavin
+#define Loop while {true} do 
 
 //----------------------------------------------------------------//
 //CBA Options
@@ -109,13 +110,7 @@
 //----------------------------------------------------------------//
 //Module Execution
 //----------------------------------------------------------------//
-null = [] execVM "Mod\unitShutterUpper.sqf";
-_deaths = [] execVM "Mod\sideDeathCount.sqf";
-null = [
-	wpMarkerBool, 
-	wpMarkerObjectBool,
-	wpMarkerConfig
-] execVM "Mod\waypointMarker.sqf";
+
 null = [
 	leaderMarkerBool, 
     leaderMarkerAceBool,
@@ -124,13 +119,22 @@ null = [
 	leaderSleepConfig
 ] execVM "Mod\leaderMarker.sqf";
 
+null = [] execVM "Mod\sideDeathCount.sqf";
+
+null = [] execVM "Mod\unitShutterUpper.sqf";
+
+null = [
+	wpMarkerBool, 
+	wpMarkerObjectBool,
+	wpMarkerConfig
+] execVM "Mod\waypointMarker.sqf";
+
 
 //----------------------------------------------------------------//
 //LOOP
 //----------------------------------------------------------------//
 
-#define Loop while {true} do 
 
 Loop {
-
+    sleep 2;
 };
