@@ -6,100 +6,106 @@
 //----------------------------------------------------------------//
 
 [
-    "leaderMarkerBool", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "leaderMarkerBool", 		    // Internal setting name
     "CHECKBOX", 					// setting type
-    "Enable Leader BFT Action", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [true], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "Enable Leader BFT Action",     // Pretty name 
+    "DCO Extras: QOL Settings", 	// Pretty name of the category 
+    [true], 		                // data 
+    false, 						    // "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //leaderMarkerBool
+    }, 							    // Statement
+    true
+] call CBA_fnc_addSetting;      //leaderMarkerBool
 
 [
-    "leaderMarkerAceBool", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "leaderMarkerAceBool", 		    // Internal setting name
     "CHECKBOX", 					// setting type
-    "Enable Leader BFT Ace Action", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [true], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "Enable Leader BFT Ace Action", // Pretty name 
+    "DCO Extras: QOL Settings", 	// Pretty name of the category 
+    [true], 		                // data 
+    false, 						    // "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //leaderMarkerAceBool
+    }, 							    // Statement
+    true
+] call CBA_fnc_addSetting;      //leaderMarkerAceBool
 
 [
-    "wpMarkerBool", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", 					// setting type
-    "Enable Current Waypoint Marker", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [true], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "wpMarkerBool", 		            // Internal setting name
+    "CHECKBOX", 					    // setting type
+    "Enable Current Waypoint Marker", 	// Pretty name 
+    "DCO Extras: QOL Settings", 		// Pretty name of the category 
+    [true], 		                    // data 
+    false, 						        // "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //wpMarkerBool
+    }, 							        // Statement
+    true
+] call CBA_fnc_addSetting;      //wpMarkerBool
 
 [
-    "wpMarkerObjectBool", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", 					// setting type
-    "Enable Current Waypoint VR Object Marker", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [true], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "wpMarkerObjectBool", 		                // Internal setting name
+    "CHECKBOX", 					            // setting type
+    "Enable Current Waypoint VR Object Marker", // Pretty name 
+    "DCO Extras: QOL Settings", 		        // Pretty name of the category 
+    [true], 		                            // data 
+    false, 						                // "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //wpMarkerObjectBool
+    }, 							                // Statement
+    true
+] call CBA_fnc_addSetting;      //wpMarkerObjectBool
 
 [
-    "leaderSleepConfig", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "SLIDER", 					// setting type
-    "Leader Marker Time-On-Map", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [0, 60, 15, 0], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "leaderSleepConfig", 		    // Internal setting name
+    "SLIDER", 					    // setting type
+    "Leader Marker Time-On-Map", 	// Pretty name 
+    "DCO Extras: QOL Settings", 	// Pretty name of the category 
+    [0, 60, 15, 0], 		        // data 
+    true, 						    // "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //leaderSleepConfig
+    } 							    // Statement
+] call CBA_fnc_addSetting;      //leaderSleepConfig
 
 [
-    "leaderDistanceConfig", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "SLIDER", 					// setting type
-    "Leader BFT Action Init Distance", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    [0, 500, 100, 0], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "leaderDistanceConfig", 		    // Internal setting name
+    "SLIDER", 					        // setting type
+    "Leader BFT Action Init Distance", 	// Pretty name 
+    "DCO Extras: QOL Settings", 		// Pretty name of the category 
+    [0, 500, 100, 0], 		            // data 
+    true, 						        // "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //leaderDistanceConfig
+    } 							        // Statement
+] call CBA_fnc_addSetting;      //leaderDistanceConfig
 
 [
-    "leaderMarkerConfig", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "leaderMarkerConfig", 		// Internal setting name
     "EDITBOX", 					// setting type
-    "Leader Marker Type", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    ["b_unknown"], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "Leader Marker Type", 		// Pretty name 
+    "DCO Extras: QOL Settings", // Pretty name of the category 
+    ["b_unknown"], 		        // data 
+    false, 						// "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //leaderMarkerConfig
+    }, 							// Statement
+    true
+] call CBA_fnc_addSetting;      //leaderMarkerConfig
 
 [
-    "wpMarkerConfig", 		// Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "wpMarkerConfig", 		    // Internal setting name
     "EDITBOX", 					// setting type
-    "Waypoint Marker Type", 			// Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "DCO Extras: QOL Settings", 		// Pretty name of the category where the setting can be found. Can be stringtable entry.
-    ["mil_marker"], 		// data for this setting: [min, max, default, number of shown trailing decimals]
-    false, 						// "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    "Waypoint Marker Type", 	// Pretty name 
+    "DCO Extras: QOL Settings", // Pretty name of the category 
+    ["mil_marker"], 		    // data 
+    false, 						// "_isGlobal" flag
     {  
         params ["_value"];
-    } 							// function that will be executed once on mission start and every time the setting is changed.
-] call CBA_fnc_addSetting; //wpMarkerConfig
+    }, 							// Statement
+    true
+] call CBA_fnc_addSetting;      //wpMarkerConfig
 
 //----------------------------------------------------------------//
 //CBA Options End
