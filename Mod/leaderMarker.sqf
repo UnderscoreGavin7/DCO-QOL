@@ -99,5 +99,3 @@ _action =
 	]
 ]
 remoteExecCall ["addAction", 0, true];
-
-//Variables
